@@ -45,6 +45,16 @@ const questions = [
         name: "email",
         type:"input",
     },
+    {
+        message: "Who can contribute to this project?",
+        name: "contributing",
+        type:"input",
+    },
+    {
+        message: "What tests are needed?",
+        name: "tests",
+        type:"input",
+    }
     
 ];
 
@@ -66,10 +76,10 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer.prompt(questions)
     .then(answers => {
-    
+
     let markdown = generateMarkdown(answers);
     
-    writeToFile("readme.md", markdown)
+    writeToFile("README.md", markdown)
     })
 }
 

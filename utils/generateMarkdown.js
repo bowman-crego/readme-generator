@@ -2,7 +2,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if(license === "MIT") {
-    return "mit badge goes here" //Go to google and get a READme License badge//
+    return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
   } else {
     return "";
   }
@@ -23,7 +23,7 @@ function renderLicenseLink(license) {
 function renderLicenseSection(license) {
   if (license !== "none") {
 
-    return `## License
+    return `
 ${renderLicenseBadge(license)};
 ${renderLicenseLink(license)}`
 
@@ -36,21 +36,40 @@ ${renderLicenseLink(license)}`
 function generateMarkdown(data) {
   return `# ${data.title}
 
-## Description
+## Table of Contents
+1. [Description](#description)
+2. [Installation Instructions](#installation-instructions)
+3. [Usage Information](#usage-information)
+4. [License](#license)
+5. [Contributing](#contributing)
+6. [Tests](#tests)
+7. [Questions](#questions)
+
+## Description <a name="description"></a>
 ${data.description}
 
-## Installation Instructions
+## Installation Instructions <a name="installation-instructions"></a>
 ${data.instructions}
 
-## Usage Information
+## Usage Information <a name="usage-information"></a>
 ${data.usage}
 
-## Table of Contents
+## License <a name="license"></a>
+${renderLicenseSection(data.license)}
+
+${renderLicenseLink(data.license)}
+
+## Contributing <a name="contributing"></a>
+${data.contributing}
+
+## Tests <a name="tests"></a>
+
+## Questions <a name="questions"></a>
 ${data.username}
 
 ${data.email}
 
-${renderLicenseSection(data.license)}
+
 `;
 }
 
